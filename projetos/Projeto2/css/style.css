@@ -1,0 +1,241 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #8b0000, #ff6a6a);
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+header {
+  background-color: rgba(139, 0, 0, 0.95); /* vermelho escuro */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em 2em;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+header h1 {
+  font-size: 1.8rem;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 2em;
+}
+
+nav ul li a {
+  color: #f8d67e; /* dourado suave */
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+  color: #ffffff;
+}
+
+/* Compensar header fixo */
+body > main,
+body > section.banner {
+  padding-top: 80px;
+}
+
+/* Banner */
+.banner img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  object-position: center top;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Biografia */
+.biografia {
+  max-width: 1000px;
+  margin: 2em auto;
+  display: flex;
+  gap: 2em;
+  background: rgba(139, 0, 0, 0.85);
+  padding: 2em;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.biografia img {
+  width: 280px;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  flex-shrink: 0;
+}
+
+.biografia .texto {
+  flex: 1;
+  font-size: 1.15rem;
+  line-height: 1.6;
+}
+
+.biografia ul {
+  margin-top: 0.5em;
+  list-style: inside disc;
+}
+
+/* Álbuns */
+.albums {
+  max-width: 1100px;
+  margin: 2em auto 4em;
+  padding: 0 1em;
+}
+
+.albums h2 {
+  margin-bottom: 1em;
+  font-size: 2rem;
+  text-align: center;
+  text-shadow: 1px 1px 3px #5c0000;
+}
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2em;
+  justify-content: center;
+}
+
+.albums a.card {
+  background: rgba(255, 215, 140, 0.9); /* dourado claro */
+  color: #5c0000;
+  border-radius: 15px;
+  text-align: center;
+  width: 200px;
+  text-decoration: none;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+}
+
+.albums a.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.45);
+}
+
+.albums a.card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 0.75em;
+  flex-shrink: 0;
+}
+
+.albums a.card h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #5c0000;
+  text-shadow: 1px 1px 2px #fff3db;
+}
+
+/* Album detail */
+.album-detail {
+  text-align: center;
+  max-width: 600px;
+  margin: 2em auto;
+}
+
+.album-detail img {
+  display: block;
+  margin: 0 auto 1.5em auto;
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.album-detail ol {
+  text-align: center;
+  padding-left: 0;
+  list-style-position: inside;
+}
+
+.album-detail ol li {
+  margin-bottom: 1.1em;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+/* Rodapé */
+footer {
+  background-color: rgba(139, 0, 0, 0.95);
+  text-align: center;
+  padding: 1.2em 1em;
+  margin-top: auto;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2);
+  font-size: 0.9rem;
+}
+
+footer p {
+  margin: 0.3em 0;
+}
+
+footer a {
+  color: #ffe5b4;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+footer a:hover {
+  color: #ffffff;
+}
+
+/* Responsividade */
+@media (max-width: 900px) {
+  .biografia {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .biografia img {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+  }
+
+  .biografia .texto {
+    font-size: 1rem;
+  }
+
+  .cards-container {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 500px) {
+  nav ul {
+    flex-direction: column;
+    gap: 1em;
+  }
+
+  .albums a.card {
+    width: 100%;
+    max-width: 320px;
+  }
+}
